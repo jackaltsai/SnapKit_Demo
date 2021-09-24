@@ -40,10 +40,25 @@ class ViewController: UIViewController {
     private func layout() {
         view.addSubview(view1)
         view1.snp.makeConstraints { make in
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-            make.center.equalToSuperview()
+            make.edges.equalToSuperview()
         }
+        
+        view.addSubview(view2)
+        view2.snp.makeConstraints { make in
+            
+            make.height.equalTo(40)
+            make.centerY.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        view.addSubview(view3)
+        view3.snp.makeConstraints { make in
+            
+            make.width.equalTo(40)
+            make.centerX.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+        }
+        
     }
     
     
