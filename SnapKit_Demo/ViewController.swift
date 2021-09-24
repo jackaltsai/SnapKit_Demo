@@ -42,18 +42,8 @@ class ViewController: UIViewController {
         view1.snp.makeConstraints { make in
             make.width.equalTo(100)
             make.height.equalTo(100)
-            make.centerX.equalToSuperview().offset(-50)
-            make.centerY.equalToSuperview()
+            make.center.equalToSuperview()
         }
-        
-        view.addSubview(view2)
-        view2.snp.makeConstraints { make in
-            make.width.equalTo(40)
-            make.height.equalTo(40)
-            make.left.equalTo(view1.snp.right)
-            make.top.equalTo(view1.snp.top)
-        }
-        
     }
     
     
