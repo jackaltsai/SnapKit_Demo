@@ -27,26 +27,27 @@ class ViewController: UIViewController {
         3.centerX.equalTo and centerY.equalTo with the offset
          */
         
-        childView.snp.makeConstraints { (make) in
-          make.size.equalTo(CGSize(width: 300, height: 300))
-          make.top.equalTo(self.view.snp.top).offset(100)
-          make.centerX.equalTo(self.view)
-        }
-        
-        anotherChildView.snp.makeConstraints { (make) in
-          make.size.equalTo(childView)
-          make.top.equalTo(childView.snp.bottom).offset(50)
-          make.centerX.equalTo(self.view)
-        }
-        
-        
-        
-        
-        /* Demo_1 */
 //        childView.snp.makeConstraints { (make) in
-////            make.top.bottom.left.right.equalTo(self.view)
-//            make.edges.equalTo(self.view)
+//          make.size.equalTo(CGSize(width: 300, height: 300))
+//          make.top.equalTo(self.view.snp.top).offset(100)
+//          make.centerX.equalTo(self.view)
 //        }
+//
+//        anotherChildView.snp.makeConstraints { (make) in
+//          make.size.equalTo(childView)
+//          make.top.equalTo(childView.snp.bottom).offset(50)
+//          make.centerX.equalTo(self.view)
+//        }
+        
+        
+        
+        
+
+        childView.snp.makeConstraints { (make) in
+//            make.top.bottom.left.right.equalTo(self.view)
+//            make.edges.equalTo(self.view)
+            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
+        }
     }
 
 
