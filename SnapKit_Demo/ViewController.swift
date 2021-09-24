@@ -9,47 +9,53 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-
+    
+    private lazy var view1: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.blue
+        return view
+    }()
+    
+    private lazy var view2: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.purple
+        return view
+    }()
+    
+    private lazy var view3: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.green
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let childView = UIView()
-        childView.backgroundColor = .red
-        self.view.addSubview(childView)
-        
-        let anotherChildView = UIView()
-        anotherChildView.backgroundColor = .yellow
-        self.view.addSubview(anotherChildView)
-        
-        /*
-        1.size.equalTo
-        2.top.equalTo (Likewise, we have bottom.equalTo, left.equalTo and right.equalTo) with the offset.
-        3.centerX.equalTo and centerY.equalTo with the offset
-         */
-        
-//        childView.snp.makeConstraints { (make) in
-//          make.size.equalTo(CGSize(width: 300, height: 300))
-//          make.top.equalTo(self.view.snp.top).offset(100)
-//          make.centerX.equalTo(self.view)
-//        }
-//
-//        anotherChildView.snp.makeConstraints { (make) in
-//          make.size.equalTo(childView)
-//          make.top.equalTo(childView.snp.bottom).offset(50)
-//          make.centerX.equalTo(self.view)
-//        }
+        layout()
         
         
-        
-        
-
-        childView.snp.makeConstraints { (make) in
-//            make.top.bottom.left.right.equalTo(self.view)
-//            make.edges.equalTo(self.view)
-            make.edges.equalTo(self.view).inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
-        }
     }
 
 
+    private func layout() {
+        view.addSubview(view1)
+        view1.snp.makeConstraints { make in
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+            make.centerX.equalToSuperview().offset(-50)
+            make.centerY.equalToSuperview()
+        }
+        
+        view.addSubview(view2)
+        view2.snp.makeConstraints { make in
+            make.width.equalTo(40)
+            make.height.equalTo(40)
+            make.left.equalTo(view1.snp.right)
+            make.top.equalTo(view1.snp.top)
+        }
+        
+    }
+    
+    
 }
 
